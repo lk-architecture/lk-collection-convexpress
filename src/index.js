@@ -11,10 +11,12 @@ function getRouter (options) {
         findElement,
         kinesisStream,
         name,
+        producerId,
         schema
     } = options;
     return Router()
         .use(middleware.validate(schema))
+        .use(middleware.decorateWithProducerId(producerId))
         .use(middleware.decorateWithCollection(name))
         .use(middleware.decorateWithKinesisStream(kinesisStream))
         .use(middleware.decorateWithExistingElement(findElement))

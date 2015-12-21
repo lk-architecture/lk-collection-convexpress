@@ -27,8 +27,12 @@ describe("remove", () => {
 
     it("should call `putRecord` function with correct parameters", () => {
         const req = {
+            user: {
+                _id: "userId"
+            },
             collection: "readings",
-            elementId: "elementId"
+            elementId: "elementId",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
@@ -42,6 +46,10 @@ describe("remove", () => {
                     id: "id",
                     data: {
                         id: "elementId"
+                    },
+                    source: {
+                        userId: "userId",
+                        producerId: "producerId"
                     },
                     timestamp: "1970-01-01T00:00:00.000Z",
                     type: "element removed in collection readings"

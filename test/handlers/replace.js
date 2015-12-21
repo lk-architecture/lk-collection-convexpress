@@ -30,8 +30,12 @@ describe("replace", () => {
             body: {
                 id: "elementId"
             },
+            user: {
+                _id: "userId"
+            },
             collection: "readings",
-            elementId: "elementId"
+            elementId: "elementId",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
@@ -47,13 +51,17 @@ describe("replace", () => {
                         id: "elementId",
                         element: {}
                     },
+                    source: {
+                        userId: "userId",
+                        producerId: "producerId"
+                    },
                     timestamp: "1970-01-01T00:00:00.000Z",
                     type: "element replaced in collection readings"
                 });
             });
     });
 
-    it("should call `status` function in `res` with 201", () => {
+    it("should call `status` function in `res` with 204", () => {
         const req = {
             body: {
                 id: "elementId"

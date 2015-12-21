@@ -30,8 +30,12 @@ describe("insert", () => {
             body: {
                 id: "elementId"
             },
+            user: {
+                _id: "userId"
+            },
             collection: "readings",
-            elementId: "elementId"
+            elementId: "elementId",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
@@ -47,6 +51,10 @@ describe("insert", () => {
                         id: "elementId",
                         element: {}
                     },
+                    source: {
+                        userId: "userId",
+                        producerId: "producerId"
+                    },
                     timestamp: "1970-01-01T00:00:00.000Z",
                     type: "element inserted in collection readings"
                 });
@@ -58,7 +66,11 @@ describe("insert", () => {
             body: {
                 id: "elementId"
             },
-            collection: "readings"
+            user: {
+                _id: "userId"
+            },
+            collection: "readings",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
@@ -74,6 +86,10 @@ describe("insert", () => {
                         id: "id",
                         element: {}
                     },
+                    source: {
+                        userId: "userId",
+                        producerId: "producerId"
+                    },
                     timestamp: "1970-01-01T00:00:00.000Z",
                     type: "element inserted in collection readings"
                 });
@@ -85,8 +101,12 @@ describe("insert", () => {
             body: {
                 id: "elementId"
             },
+            user: {
+                _id: "userId"
+            },
             collection: "readings",
-            elementId: "elementId"
+            elementId: "elementId",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
@@ -104,8 +124,12 @@ describe("insert", () => {
             body: {
                 id: "elementId"
             },
+            user: {
+                _id: "userId"
+            },
             collection: "readings",
-            elementId: "elementId"
+            elementId: "elementId",
+            producerId: "producerId"
         };
         const res = {
             status: sinon.spy(() => res),
