@@ -1,6 +1,6 @@
 {
   "name": "lk-collection-express",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Express router implementing collections in the lk-architecture",
   "main": "lib/index.js",
   "scripts": {
