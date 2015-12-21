@@ -30,9 +30,7 @@ describe("replace handler", () => {
             body: {
                 id: "elementId"
             },
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             collection: "readings",
             elementId: "elementId",
             producerId: "producerId"

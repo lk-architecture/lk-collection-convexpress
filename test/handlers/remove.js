@@ -27,9 +27,7 @@ describe("remove handler", () => {
 
     it("calls `putRecord` with the correct parameters", () => {
         const req = {
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             collection: "readings",
             elementId: "elementId",
             producerId: "producerId"

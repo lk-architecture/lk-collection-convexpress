@@ -4,11 +4,9 @@ import getSource from "handlers/get-source";
 
 describe("getSource function", () => {
 
-    it("returns the correct source for the event [CASE: `req.user` defined]", () => {
+    it("returns the correct source for the event [CASE: `req.userId` defined]", () => {
         const req = {
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             producerId: "producerId"
         };
         const source = getSource(req);
@@ -18,7 +16,7 @@ describe("getSource function", () => {
         });
     });
 
-    it("returns the correct source for the event [CASE: `req.user` not defined]", () => {
+    it("returns the correct source for the event [CASE: `req.userId` not defined]", () => {
         const req = {
             producerId: "producerId"
         };

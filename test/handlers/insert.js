@@ -30,9 +30,7 @@ describe("insert handler", () => {
             body: {
                 id: "elementId"
             },
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             collection: "readings",
             elementId: "elementId",
             producerId: "producerId"
@@ -66,9 +64,7 @@ describe("insert handler", () => {
             body: {
                 id: "elementId"
             },
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             collection: "readings",
             producerId: "producerId"
         };
@@ -101,9 +97,7 @@ describe("insert handler", () => {
             body: {
                 id: "elementId"
             },
-            user: {
-                _id: "userId"
-            },
+            userId: "userId",
             collection: "readings",
             elementId: "elementId",
             producerId: "producerId"
