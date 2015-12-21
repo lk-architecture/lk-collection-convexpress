@@ -6,7 +6,7 @@ chai.use(sinonChai);
 
 import remove from "handlers/remove";
 
-describe("remove", () => {
+describe("remove handler", () => {
 
     const putRecord = sinon.stub().returns(Promise.resolve());
     const v4 = () => "id";
@@ -25,7 +25,7 @@ describe("remove", () => {
         clock.restore();
     });
 
-    it("should call `putRecord` function with correct parameters", () => {
+    it("calls `putRecord` with the correct parameters", () => {
         const req = {
             user: {
                 _id: "userId"
@@ -57,7 +57,7 @@ describe("remove", () => {
             });
     });
 
-    it("should call `status` function in `res` with 201", () => {
+    it("sends a 204 response to the client with an empty body", () => {
         const req = {
             body: {
                 id: "elementId"
@@ -73,25 +73,8 @@ describe("remove", () => {
             .then(() => {
                 expect(res.status).to.have.callCount(1);
                 expect(res.status).to.have.been.calledWith(204);
-            });
-    });
-
-    it("should call `send` function in `res`", () => {
-        const req = {
-            body: {
-                id: "elementId"
-            },
-            collection: "readings",
-            elementId: "elementId"
-        };
-        const res = {
-            status: sinon.spy(() => res),
-            send: sinon.spy()
-        };
-        return remove(req, res)
-            .then(() => {
                 expect(res.send).to.have.callCount(1);
-                expect(res.send).to.have.been.calledWith();
+                expect(res.send.getCall(0).args.length).to.equal(0);
             });
     });
 

@@ -6,7 +6,7 @@ chai.use(sinonChai);
 
 import insert from "handlers/insert";
 
-describe("insert", () => {
+describe("insert handler", () => {
 
     const putRecord = sinon.stub().returns(Promise.resolve());
     const v4 = () => "id";
@@ -25,7 +25,7 @@ describe("insert", () => {
         clock.restore();
     });
 
-    it("should call `putRecord` function with correct parameters if elementId is defined", () => {
+    it("calls `putRecord` with the correct parameters [CASE: `req.elementId` defined]", () => {
         const req = {
             body: {
                 id: "elementId"
@@ -61,7 +61,7 @@ describe("insert", () => {
             });
     });
 
-    it("should call `putRecord` function with correct parameters if elementId is not defined", () => {
+    it("calls `putRecord` with the correct parameters [CASE: `req.elementId` not defined]", () => {
         const req = {
             body: {
                 id: "elementId"
@@ -96,7 +96,7 @@ describe("insert", () => {
             });
     });
 
-    it("should call `status` function in `res` with 201", () => {
+    it("sends a 201 response to the client with the id of the inserted element in the body", () => {
         const req = {
             body: {
                 id: "elementId"
@@ -116,27 +116,6 @@ describe("insert", () => {
             .then(() => {
                 expect(res.status).to.have.callCount(1);
                 expect(res.status).to.have.been.calledWith(201);
-            });
-    });
-
-    it("should call `send` function in `res` with `id`", () => {
-        const req = {
-            body: {
-                id: "elementId"
-            },
-            user: {
-                _id: "userId"
-            },
-            collection: "readings",
-            elementId: "elementId",
-            producerId: "producerId"
-        };
-        const res = {
-            status: sinon.spy(() => res),
-            send: sinon.spy()
-        };
-        return insert(req, res)
-            .then(() => {
                 expect(res.send).to.have.callCount(1);
                 expect(res.send).to.have.been.calledWith({id: "elementId"});
             });
