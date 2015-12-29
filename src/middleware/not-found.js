@@ -1,8 +1,14 @@
-export default function notFound () {
-    return (req, res, next) => {
-        if ((req.method === "PUT" || req.method === "DELETE") && !req.existingElement) {
+export const responses = {
+    "404": {
+        description: "Element not found"
+    }
+};
+export function getMiddleware (options) {
+    const {findElement, name} = options;
+    return async (req, res, next) => {
+        if (!await findElement(name, req.params.elementId)) {
             res.status(404).send({
-                message: `No element found with id ${req.elementId}`
+                message: `No element found with id ${req.params.elementId}`
             });
         } else {
             next();
