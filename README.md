@@ -6,6 +6,8 @@
 
 # lk-collection-convexpress
 
+Convexpress routes implementing collections in the lk-architecture.
+
 ## Usage
 
 ```js
