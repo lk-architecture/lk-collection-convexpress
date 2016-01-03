@@ -40,7 +40,7 @@ describe("replace convroute", () => {
         return server;
     }
 
-    it("400 on element not matching schema [CASE: empty body (having no body is not possible for a PUT)]", () => {
+    it("400 on element not matching schema [CASE: no body]", () => {
         return request(getServer())
             .put("/collection-name/elementId")
             .expect(400)
