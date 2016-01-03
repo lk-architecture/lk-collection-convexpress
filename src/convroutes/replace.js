@@ -13,6 +13,7 @@ export default function getConvroute (options) {
         path: `/${name}/:elementId`,
         method: "put",
         description: `Replace an element in collection ${name}`,
+        tags: [name],
         parameters: [
             {
                 name: "elementId",

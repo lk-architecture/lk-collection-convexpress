@@ -14,6 +14,7 @@ export default function getConvroute (options) {
         path: `/${name}`,
         method: "post",
         description: `Inserts an element into collection ${name}`,
+        tags: [name],
         parameters: [{
             name: "element",
             in: "body",

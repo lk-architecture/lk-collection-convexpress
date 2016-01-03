@@ -10,6 +10,7 @@ export default function getConvroute (options) {
         path: `/${name}/:elementId`,
         method: "delete",
         description: `Delete an element from collection ${name}`,
+        tags: [name],
         parameters: [{
             name: "elementId",
             in: "path",
