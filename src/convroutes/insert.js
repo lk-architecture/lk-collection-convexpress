@@ -1,5 +1,5 @@
 import omit from "lodash.omit";
-import {v4} from "node-uuid";
+import {v4} from "uuid";
 
 import * as authorize from "../middleware/authorize";
 import * as conflict from "../middleware/conflict";

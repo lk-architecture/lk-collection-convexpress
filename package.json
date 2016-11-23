@@ -47,6 +47,6 @@
   "dependencies": {
     "convexpress": "^1.3.3",
     "lodash.omit": "^3.1.0",
-    "node-uuid": "^1.4.7"
+    "uuid": "^3.0.0"
   }
 }
